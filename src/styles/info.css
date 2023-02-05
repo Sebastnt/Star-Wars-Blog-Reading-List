@@ -1,0 +1,15 @@
+.infocard {
+    width: 400px;
+}
+
+.infofooter {
+    border-top: 3px solid red;
+}
+
+.info {
+    font-size: 150%;
+}
+
+th, tr {
+    color: red;
+}

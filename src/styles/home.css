@@ -1,8 +1,15 @@
 
 .card {
     width: 18rem;
+    min-width: 18rem;
 }
 
 h2 {
     color: red;
+}
+
+.card-container {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 650px;
 }
