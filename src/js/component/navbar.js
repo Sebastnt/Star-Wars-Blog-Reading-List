@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const Navbar = () => {
+export const Navbar = ( {favorites} ) => {
+	console.log(favorites)
 	return (
 		<nav className="navbar navbar-light bg-light mb-3 p-3">
 			<Link to="/">
-				<span className="navbar-brand mb-0 h1">STAR WARS</span>
+				<span className="navbar-brand mb-0 h1"><img src="https://img.icons8.com/ios/50/000000/star-wars.png"/></span>
 			</Link>
 			<div className="dropdown ml-auto">
 				<button className="btn btn-primary dropdown-toggle p-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
