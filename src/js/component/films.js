@@ -1,23 +1,18 @@
 import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
+import { getFilms } from "../helpers/getFilms";
 
 export const Films = () => {
     
 	const [films, setFilms] = useState([]);
 	
-
-	const getFilms = async () => {
-		try {
-			const resp = await fetch('https://swapi.dev/api/films')
-			const data = await resp.json();
-			const results = data.results;
-			setFilms(results);
-		}catch(e) {
-			console.log("fallo mi llamada")
-		}
-	}
 	
-	useEffect(() => {getFilms()},[])
+	const setFilmssAsync = async () => {
+		const filmList = await getFilms();
+		setFilms(filmList?.results);
+	}
+
+	useEffect(() => {setFilmssAsync()},[])
 	
 	
     return (
@@ -34,10 +29,10 @@ export const Films = () => {
 							<p className="card-text"> Release Date: {release_date}</p>
 						</div>
 						<div className="card-footer d-flex justify-content-between">
-							<Link to="/info">
+							<Link to={`/infoFilms/${i+1}`}>
 								<button className="btn btn-outline-primary">Learn More!</button>
 							</Link>
-							<button className="btn btn-outline-warning"><i className="far fa-heart"></i></button>
+							<button className="like btn btn-outline-warning"><i className="far fa-heart"></i></button>
 						</div>
 					</div>
 				))}

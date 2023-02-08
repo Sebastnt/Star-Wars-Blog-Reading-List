@@ -13,3 +13,15 @@ h2 {
     overflow-y: hidden;
     height: 720px;
 }
+
+.like:active {
+    color: yellow;
+}
+
+.like:focus {
+    color: red;
+}
+
+.like:target {
+    color: red;
+}

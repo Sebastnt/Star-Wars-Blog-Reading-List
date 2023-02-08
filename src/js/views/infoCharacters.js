@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { getCharacters } from "../helpers/getCharacters";
+import { Navbar } from "../component/navbar";
 
 import "../../styles/info.css";
 
-export const Info = () => {
+export const InfoCharacters = () => {
 
     const {id} = useParams();
 
@@ -18,12 +19,9 @@ export const Info = () => {
     useEffect(() => {setCharactersInfoAsync()},[])
 
     
-
-    
-
-
     return (
         <>
+            <Navbar />
             <div className="container">
                 <div className="infotop d-flex justify-content-evenly p-2">
 

@@ -31,10 +31,10 @@ export const Characters = ( {favorites} ) => {
 							<p className="card-text"> Eye-Color: {eye_color}</p>
 						</div>
 						<div className="card-footer d-flex justify-content-between">
-							<Link to={`/info/${i+1}`}>
+							<Link to={`/infoCharacters/${i+1}`}>
 								<button className="btn btn-outline-primary">Learn More!</button>
 							</Link>
-							<button className="btn btn-outline-warning"><i className="far fa-heart"></i></button>
+							<button className="like btn btn-outline-warning"><i className="far fa-heart"></i></button>
 						</div>
 					</div>
 				))}
