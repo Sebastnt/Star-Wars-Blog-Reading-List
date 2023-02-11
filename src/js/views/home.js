@@ -1,20 +1,17 @@
 import React, {useState} from "react";
 import "../../styles/home.css";
 
-import { Characters } from "../component/characters";
-import { Planets } from "../component/planets";
-import { Films } from "../component/films";
-import { Navbar } from "../component/navbar";
+import { Characters } from "../component/characters.jsx";
+import { Planets } from "../component/planets.jsx";
+import { Films } from "../component/films.jsx";
+import { Navbar } from "../component/navbar.jsx";
 
 
 export const Home = () => {
 
-	const [favorites, setFavorites] = useState(0)
-
-
 	return (
 		<>
-			<Navbar favorites={favorites} />
+			<Navbar />
 			<Characters />
 			<Planets />
 			<Films />

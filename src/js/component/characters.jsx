@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import { getCharacters } from "../helpers/getCharacters";
+import { useContext } from "react";
+import { FavoritesContext } from "../context/FavoriteContext.jsx";
 
 
-export const Characters = ( {favorites} ) => {
+export const Characters = () => {
 
+	const { addFavorites, favorites } = useContext(FavoritesContext);
 
 	const [characters, setCharacters] = useState([]);
 
@@ -34,7 +36,8 @@ export const Characters = ( {favorites} ) => {
 							<Link to={`/infoCharacters/${i+1}`}>
 								<button className="btn btn-outline-primary">Learn More!</button>
 							</Link>
-							<button className="like btn btn-outline-warning"><i className="far fa-heart"></i></button>
+							<button className="like btn btn-outline-warning"><i 
+            				className={favorites.includes(name) ? "fas fa-heart" : "far fa-heart"}onClick={()=>{addFavorites(name)}} ></i></button>
 						</div>
 					</div>
 				))}

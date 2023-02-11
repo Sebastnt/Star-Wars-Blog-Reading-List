@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { getFilms } from "../helpers/getFilms";
-import { Navbar } from "../component/navbar";
+import { Navbar } from "../component/navbar.jsx";
 
 import "../../styles/info.css";
 
@@ -27,7 +27,7 @@ export const InfoFilms = () => {
 
                     <img src={`https://starwars-visualguide.com/assets/img/films/${id}.jpg`} className="infocard" alt="..." />
                     <div className="info p-3 text-center">
-                        <h1>{film.title}, Episodio: {film.episode_id}</h1>
+                        <h1>{film.title}, Episode: {film.episode_id}</h1>
                         <p>{film.opening_crawl}</p>
                     </div>
                 </div>

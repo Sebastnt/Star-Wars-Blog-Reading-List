@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import { getFilms } from "../helpers/getFilms";
+import { useContext } from "react";
+import { FavoritesContext } from "../context/FavoriteContext.jsx";
 
 export const Films = () => {
     
+	const { addFavorites, favorites } = useContext(FavoritesContext)
+
 	const [films, setFilms] = useState([]);
-	
 	
 	const setFilmssAsync = async () => {
 		const filmList = await getFilms();
@@ -23,7 +26,7 @@ export const Films = () => {
 					<div key= {i} className="card me-5">
 						<img src={`https://starwars-visualguide.com/assets/img/films/${i+1}.jpg`} className="card-img-top" alt="Loading Image from API" />
 						<div className="card-body p-3">
-							<h4 className="card-title">{title} {episode_id}</h4>
+							<h4 className="card-title">{title}, Episode: {episode_id}</h4>
 							<p className="card-text"> Director: {director}</p>
 							<p className="card-text"> Producer: {producer}</p>
 							<p className="card-text"> Release Date: {release_date}</p>
@@ -32,7 +35,8 @@ export const Films = () => {
 							<Link to={`/infoFilms/${i+1}`}>
 								<button className="btn btn-outline-primary">Learn More!</button>
 							</Link>
-							<button className="like btn btn-outline-warning"><i className="far fa-heart"></i></button>
+							<button className="like btn btn-outline-warning"><i 
+            				className={favorites.includes(title) ? "fas fa-heart" : "far fa-heart"}onClick={()=>{addFavorites(title)}} ></i></button>
 						</div>
 					</div>
 				))}

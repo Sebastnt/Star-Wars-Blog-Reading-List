@@ -9,7 +9,6 @@ export const getCharacters = async (id) => {
         const resp = await fetch(url)
         const data = await resp.json();
         const results = data;
-        console.log(results);
         return results;
     }catch(e) {
         console.log("fallo mi llamada")
